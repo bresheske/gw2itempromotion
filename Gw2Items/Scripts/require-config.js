@@ -8,9 +8,6 @@ requirejs.config({
         'jquery': 'libs/jquery-2.1.4.min',
         'bootstrap': 'libs/bootstrap.min',
 
-        // Controllers
-        'items': 'controllers/itemscontroller',
-
         // Services
         'itemsrepository': 'services/ItemsRepository'
     },

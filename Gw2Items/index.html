@@ -17,7 +17,7 @@
 <body ng-controller="ItemsController">
     <div class="container">
         <div class="row" ng-show="!Loaded">
-            <div class="well">Loading, One Moment...</div>
+            <div class="well"><h4>Loading, hold your horses...</h4></div>
         </div>
         <div class="row" ng-cloak ng-show="Loaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
             <div class="col-sm-12">

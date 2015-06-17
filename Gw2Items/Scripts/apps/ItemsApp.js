@@ -1,2 +1,2 @@
-﻿// Starts up the single-page module.
-requirejs(['items']);
+﻿// Specific to a single page. Loads up the executing controller for Items.
+requirejs(['controllers/itemscontroller']);
