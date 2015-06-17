@@ -185,7 +185,6 @@ define(['jquery', 'angular'], function ($, angular) {
 
         // Callback for a fully loaded recipe.
         var recipeLoaded = function (recipe) {
-            console.dir(recipe);
 
             // Recalculate totals for each.
             var totalbuyinstant = 0;

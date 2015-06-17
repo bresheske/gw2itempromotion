@@ -10,9 +10,14 @@ requirejs.config({
 
         // Controllers
         'items': 'controllers/itemsscontroller',
-        
 
         // Services
+    },
+    shim: {
+        // Angular is not AMD aware. :(
+        'angular': {
+            exports: 'angular'
+        }
     }
 });
 
