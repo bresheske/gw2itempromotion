@@ -9,7 +9,7 @@ requirejs.config({
         'bootstrap': 'libs/bootstrap.min',
 
         // Controllers
-        'items': 'controllers/itemsscontroller',
+        'items': 'controllers/itemscontroller',
 
         // Services
         'itemsrepository': 'services/ItemsRepository'
@@ -21,6 +21,3 @@ requirejs.config({
         }
     }
 });
-
-// Starts up the single-page module.
-requirejs(['controllers/itemscontroller']);

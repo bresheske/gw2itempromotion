@@ -1,19 +1,25 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="ItemsApp">
 <head>
-    <!-- Common libs only. The rest are handled by require.js -->
+    <!-- Common libs only. The rest are handled by require.js (Included in a _Layout) -->
     <script src="Scripts/libs/require.js"></script>
-    <script src="Scripts/app.js"></script>
+    <script src="Scripts/require-config.js"></script>
 
+    <!-- The app file for this one particular module -->
+    <script src="Scripts/apps/ItemsApp.js"></script>
 
-
+    <!-- Common Stylesheets (Included in a _Layout) -->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/angular-cloak.css" rel="stylesheet" />
     <title>GW2 T6 Promotion</title>
 </head>
 <body ng-controller="ItemsController">
     <div class="container">
-        <div class="row" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
+        <div class="row" ng-show="!Loaded">
+            <div class="well">Loading, One Moment...</div>
+        </div>
+        <div class="row" ng-cloak ng-show="Loaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
             <div class="col-sm-12">
                 <div class="well">
                     <h2>{{recipe.name}}</h2>

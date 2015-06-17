@@ -27,153 +27,153 @@
     ];
 
     var recipies = [
-            {
-                name: "Powerful Blood Promotion",
-                ingredients: [
-                    {
-                        item: 24294,
-                        quantity: 50
-                    },
-                    {
-                        item: 24295,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+        {
+            name: "Powerful Blood Promotion",
+            ingredients: [
+                {
+                    item: 24294,
+                    quantity: 50
+                },
+                {
                     item: 24295,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Large Bone Promotion",
-                ingredients: [
-                    {
-                        item: 24341,
-                        quantity: 50
-                    },
-                    {
-                        item: 24358,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24295,
+                quantity: 7
+            }
+        },
+        {
+            name: "Large Bone Promotion",
+            ingredients: [
+                {
+                    item: 24341,
+                    quantity: 50
+                },
+                {
                     item: 24358,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Large Claw Promotion",
-                ingredients: [
-                    {
-                        item: 24350,
-                        quantity: 50
-                    },
-                    {
-                        item: 24351,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24358,
+                quantity: 7
+            }
+        },
+        {
+            name: "Large Claw Promotion",
+            ingredients: [
+                {
+                    item: 24350,
+                    quantity: 50
+                },
+                {
                     item: 24351,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Vicious Fang Promotion",
-                ingredients: [
-                    {
-                        item: 24356,
-                        quantity: 50
-                    },
-                    {
-                        item: 24357,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24351,
+                quantity: 7
+            }
+        },
+        {
+            name: "Vicious Fang Promotion",
+            ingredients: [
+                {
+                    item: 24356,
+                    quantity: 50
+                },
+                {
                     item: 24357,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Armored Scale Promotion",
-                ingredients: [
-                    {
-                        item: 24288,
-                        quantity: 50
-                    },
-                    {
-                        item: 24289,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24357,
+                quantity: 7
+            }
+        },
+        {
+            name: "Armored Scale Promotion",
+            ingredients: [
+                {
+                    item: 24288,
+                    quantity: 50
+                },
+                {
                     item: 24289,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Elaborate Totem Promotion",
-                ingredients: [
-                    {
-                        item: 24299,
-                        quantity: 50
-                    },
-                    {
-                        item: 24300,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24289,
+                quantity: 7
+            }
+        },
+        {
+            name: "Elaborate Totem Promotion",
+            ingredients: [
+                {
+                    item: 24299,
+                    quantity: 50
+                },
+                {
                     item: 24300,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
-            {
-                name: "Powerful Venom Sac Promotion",
-                ingredients: [
-                    {
-                        item: 24282,
-                        quantity: 50
-                    },
-                    {
-                        item: 24283,
-                        quantity: 1
-                    },
-                    {
-                        item: 24277,
-                        quantity: 5
-                    }
-                ],
-                result: {
+            ],
+            result: {
+                item: 24300,
+                quantity: 7
+            }
+        },
+        {
+            name: "Powerful Venom Sac Promotion",
+            ingredients: [
+                {
+                    item: 24282,
+                    quantity: 50
+                },
+                {
                     item: 24283,
-                    quantity: 7
+                    quantity: 1
+                },
+                {
+                    item: 24277,
+                    quantity: 5
                 }
-            },
+            ],
+            result: {
+                item: 24283,
+                quantity: 7
+            }
+        },
     ];
 
     // Constructor for the object.
@@ -246,8 +246,7 @@
     };
 
     var itemurl = 'https://api.guildwars2.com/v2/items/';
-    var loadRecipies = function(allloadedcallback)
-    {
+    var loadRecipies = function (allloadedcallback) {
         $.each(baseitems, function (index, id) {
             $.getJSON(itemurl + id, function (result) {
                 baseitems[index] = result;
@@ -255,7 +254,7 @@
             });
         });
     }
-    
+
 
 
     // Defines methods that are publicly-visable.

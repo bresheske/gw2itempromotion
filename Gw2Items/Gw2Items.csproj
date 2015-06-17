@@ -74,6 +74,8 @@
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\apps\ItemsApp.js" />
+    <Content Include="Scripts\require-config.js" />
     <Content Include="Scripts\libs\angular-animate.js" />
     <Content Include="Scripts\libs\angular-animate.min.js" />
     <Content Include="Scripts\libs\angular-aria.js" />
