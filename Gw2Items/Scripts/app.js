@@ -12,6 +12,7 @@ requirejs.config({
         'items': 'controllers/itemsscontroller',
 
         // Services
+        'itemsrepository': 'services/ItemsRepository'
     },
     shim: {
         // Angular is not AMD aware. :(

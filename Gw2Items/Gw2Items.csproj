@@ -869,6 +869,7 @@
     <Content Include="Scripts\libs\npm.js" />
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
+    <Content Include="Scripts\services\ItemsRepository.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\libs\jquery-2.1.4.min.map" />
     <Content Include="Scripts\libs\version.json" />
@@ -876,9 +877,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
