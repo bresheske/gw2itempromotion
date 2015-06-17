@@ -1,18 +1,20 @@
 ﻿
-requirejs.config({
+
+// Configs could be in a COMMON js file.
+require.config({
     baseUrl: 'Scripts',
     paths: {
 
         // Dependencies
-        'angular': 'libs/angular.min',
+        'angular': 'libs/angular',
         'jquery': 'libs/jquery-2.1.4.min',
         'bootstrap': 'libs/bootstrap.min',
 
         // Controllers
-        'items': 'controllers/itemsscontroller',
+        'items': 'controllers/itemscontroller',
 
         // Services
-        'itemsrepository': 'services/ItemsRepository'
+        'itemsrepository': 'services/ItemsRepository',
     },
     shim: {
         // Angular is not AMD aware. :(
@@ -21,6 +23,3 @@ requirejs.config({
         }
     }
 });
-
-// Starts up the single-page module.
-requirejs(['controllers/itemscontroller']);

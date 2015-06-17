@@ -1,19 +1,21 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="ItemsApp">
 <head>
-    <!-- Common libs only. The rest are handled by require.js -->
-    <script src="Scripts/libs/require.js"></script>
-    <script src="Scripts/app.js"></script>
-
-
-
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <title>GW2 T6 Promotion</title>
+
+    <!-- Common libs only. The rest are handled by require.js -->
+    <!-- We load the JS files LAST so that ng-cloak has a chance to handle the loading screen. -->
+    <script src="Scripts/libs/require.js"></script>
+    <script src="Scripts/require-config.js"></script>
 </head>
 <body ng-controller="ItemsController">
-    <div class="container">
-        <div class="row" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
+    <div class="container ng-cloak">
+        <div class="row" ng-show="!isLoaded">
+            Loading....
+        </div>
+        <div class="row" ng-show="isLoaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
             <div class="col-sm-12">
                 <div class="well">
                     <h2>{{recipe.name}}</h2>
@@ -53,7 +55,10 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
+
+    <!-- Only files expected for this particular page. -->
+    <script src="Scripts/apps/ItemsApp.js"></script>
 </body>
 </html>
