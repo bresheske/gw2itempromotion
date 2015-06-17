@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\angular-cloak.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -73,7 +74,6 @@
     <Content Include="Icon.png" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\apps\ItemsApp.js" />
     <Content Include="Scripts\require-config.js" />
     <Content Include="Scripts\libs\angular-animate.js" />
