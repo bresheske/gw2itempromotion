@@ -233,7 +233,7 @@
 
             // Maybe we're fully loaded.
             if (isRecipeLoaded(rep))
-                recipeLoaded(rep);
+                recipeLoaded(rep, allloadedcallback);
         });
     };
 
