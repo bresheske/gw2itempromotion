@@ -175,6 +175,7 @@
             }
         },
     ];
+    var loadedRecipies = [];
 
     // Constructor for the object.
     function ItemsRepository() {
@@ -182,6 +183,13 @@
     }
 
     // Private methods not exposed externally.
+
+    var clear = function() {
+        loadedRecipies = [];
+        $.each(recipies, function (ind, r) {
+            loadedRecipies.push($.extend(true, {}, r));
+        });
+    }
 
     var recipeLoaded = function (recipe, allloadedcallback) {
 
@@ -201,7 +209,7 @@
 
         // callback as needed.
         if (areAllRecipiesLoaded() && allloadedcallback)
-            allloadedcallback(recipies);
+            allloadedcallback(loadedRecipies);
     };
 
     var isRecipeLoaded = function (recipe) {
@@ -215,7 +223,7 @@
 
     var areAllRecipiesLoaded = function () {
         var isloaded = true;
-        $.each(recipies, function (ind, r) {
+        $.each(loadedRecipies, function (ind, r) {
             isloaded = isloaded && isRecipeLoaded(r);
         });
         return isloaded;
@@ -223,7 +231,7 @@
 
     var fillRecipe = function (item, allloadedcallback) {
 
-        $.each(recipies, function (i, rep) {
+        $.each(loadedRecipies, function (i, rep) {
             $.each(rep.ingredients, function (id, ingredient) {
                 if (ingredient.item === item.id)
                     ingredient.item = item;
@@ -247,9 +255,10 @@
 
     var itemurl = 'https://api.guildwars2.com/v2/items/';
     var loadRecipies = function (allloadedcallback) {
+        // Dump the old results first.
+        clear();
         $.each(baseitems, function (index, id) {
             $.getJSON(itemurl + id, function (result) {
-                baseitems[index] = result;
                 loadCommerce(result, allloadedcallback);
             });
         });

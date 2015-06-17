@@ -9,11 +9,16 @@ define(['jquery', 'angular', 'itemsrepository'], function ($, angular, itemsserv
         $scope.Loaded = false;
         $scope.recipies = [];
 
-        itemsservice.getItems(function (items) {
-            $scope.recipies = items;
-            $scope.Loaded = true;
-            $scope.$apply();
-        });
+        $scope.refresh = function () {
+            itemsservice.getItems(function (items) {
+                $scope.recipies = items;
+                console.dir(items);
+                $scope.Loaded = true;
+                $scope.$apply();
+            });
+        };
+
+        $scope.refresh();
 
     });
 

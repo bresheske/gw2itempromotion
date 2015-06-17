@@ -19,6 +19,13 @@
         <div class="row" ng-show="!Loaded">
             <div class="well"><h4>Loading, hold your horses...</h4></div>
         </div>
+        <div class="row" ng-cloak ng-show="Loaded">
+            <div class="col-sm-12">
+                <div class="well">
+                    <button type="button" class="btn btn-primary" ng-click="refresh()">Refresh</button>
+                </div>
+            </div>
+        </div>
         <div class="row" ng-cloak ng-show="Loaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
             <div class="col-sm-12">
                 <div class="well">
