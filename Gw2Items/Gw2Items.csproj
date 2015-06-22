@@ -103,7 +103,7 @@
     <Content Include="Scripts\libs\angular.min.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
-    <Content Include="Scripts\controllers\itemscontroller.js" />
+    <Content Include="Scripts\controllers\ItemsController.js" />
     <Content Include="Scripts\libs\errors.json" />
     <Content Include="Scripts\libs\angular-touch.min.js.map" />
     <Content Include="Scripts\libs\angular-sanitize.min.js.map" />

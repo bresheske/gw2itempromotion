@@ -197,15 +197,20 @@
         var totalbuyinstant = 0;
         var totalsellingresult = 0;
         var totaldelta = 0;
+
         $.each(recipe.ingredients, function (id, ingredient) {
             totalbuyinstant += ingredient.quantity * ingredient.item.commerce.sells.unit_price;
         });
         totalsellingresult = recipe.result.quantity * recipe.result.item.commerce.buys.unit_price;
+        var totalsellingminusone = (recipe.result.quantity - 1) * recipe.result.item.commerce.buys.unit_price;
+
         totaldelta = totalsellingresult - totalbuyinstant;
+        totaldeltaminusone = totalsellingminusone - totalbuyinstant;
 
         recipe.totalBuyInstantPrice = totalbuyinstant;
         recipe.totalSellingResult = totalsellingresult;
         recipe.totalSellingProfit = totaldelta;
+        recipe.totalSellingProfitMinusOne = totaldeltaminusone;
 
         // callback as needed.
         if (areAllRecipiesLoaded() && allloadedcallback)
