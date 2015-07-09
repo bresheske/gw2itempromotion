@@ -3,8 +3,9 @@
 define(['jquery', 'angular', 'itemsrepository'], function ($, angular, itemsservice) {
 
     // Angular bootstrapping.
-    // TODO: This fails if the HTML is fully loaded FIRST.
     var app = angular.module('ItemsApp', []);
+    angular.element(document).ready(function () { angular.bootstrap(document, ['ItemsApp']); });
+
     app.controller('ItemsController', function ($scope) {
 
         $scope.Loaded = false;
