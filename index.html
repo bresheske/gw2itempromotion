@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ItemsApp">
+<head>
+    <!-- Common libs only. The rest are handled by require.js (Included in a _Layout) -->
+    <script src="Scripts/libs/require.js"></script>
+    <script src="Scripts/require-config.js"></script>
+
+    <!-- The app file for this one particular module -->
+    <script src="Scripts/apps/ItemsApp.js"></script>
+
+    <!-- Common Stylesheets (Included in a _Layout) -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/angular-cloak.css" rel="stylesheet" />
+    <title>GW2 T6 Promotion</title>
+</head>
+<body ng-controller="ItemsController">
+    <div class="container">
+        <div class="row" ng-show="!Loaded">
+            <div class="well"><h4>Loading, hold your horses...</h4></div>
+        </div>
+        <div class="row" ng-cloak ng-show="Loaded">
+            <div class="col-sm-12">
+                <div class="well">
+                    <button type="button" class="btn btn-primary" ng-click="refresh()">Refresh</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-cloak ng-show="Loaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
+            <div class="col-sm-12">
+                <div class="well">
+                    <h2>{{recipe.name}}</h2>
+                    <div class="row">
+                        <div class="col-sm-3" ng-repeat="ingredient in recipe.ingredients">
+                            <h4>{{ingredient.item.name}}</h4>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img class="img-rounded" src="{{ingredient.item.icon}}" />
+                                </div>
+                                <div class="col-sm-8">
+                                    <h4>x {{ingredient.quantity}}</h4>
+                                    <p>Buy Price: {{ingredient.item.commerce.buys.unit_price}}</p>
+                                    <p>Sell Price: {{ingredient.item.commerce.sells.unit_price}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <h4>{{recipe.result.item.name}}</h4>
+                            <div class="col-sm-4">
+                                <img class="img-rounded" src="{{recipe.result.item.icon}}" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h4>x {{recipe.result.quantity}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4> Total Instant Cost: {{recipe.totalBuyInstantPrice}}</h4>
+                            <h4> Total TP Selling Result: {{recipe.totalSellingResult}}</h4>
+                            <h4> Total TP Selling Profit: {{recipe.totalSellingProfit}}</h4>
+                            <h5> Total TP Selling Profit (6 Results): {{recipe.totalSellingProfitMinusOne}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
