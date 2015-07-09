@@ -1,4 +1,4 @@
-﻿define(['jquery'], function ($) {
+﻿require(['jquery'], function ($) {
 
     // private variables.
     var baseitems = [

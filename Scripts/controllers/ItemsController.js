@@ -1,6 +1,6 @@
 ﻿
 // Define our dependencies - located in app.js. 
-define(['jquery', 'angular', 'itemsrepository'], function ($, angular, itemsservice) {
+require(['jquery', 'angular', 'itemsrepository'], function ($, angular, itemsservice) {
 
     // Angular bootstrapping.
     var app = angular.module('ItemsApp', []);
