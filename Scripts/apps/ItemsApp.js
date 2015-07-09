@@ -1,2 +1,2 @@
 ﻿// Specific to a single page. Loads up the executing controller for Items.
-requirejs(['controllers/itemscontroller']);
+requirejs(['controllers/ItemsController']);
