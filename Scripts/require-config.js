@@ -4,7 +4,7 @@ requirejs.config({
     paths: {
 
         // Dependencies
-        'angular': 'libs/angular.min',
+        'angular': 'libs/angular',
         'jquery': 'libs/jquery-2.1.4.min',
         'bootstrap': 'libs/bootstrap.min',
 
