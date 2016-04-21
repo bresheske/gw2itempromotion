@@ -203,14 +203,16 @@
         });
         totalsellingresult = recipe.result.quantity * recipe.result.item.commerce.buys.unit_price;
         var totalsellingminusone = (recipe.result.quantity - 1) * recipe.result.item.commerce.buys.unit_price;
-
+		var totalsellingminustwo = (recipe.result.quantity - 2) * recipe.result.item.commerce.buys.unit_price;
         totaldelta = totalsellingresult - totalbuyinstant;
-        totaldeltaminusone = totalsellingminusone - totalbuyinstant;
+        var totaldeltaminusone = totalsellingminusone - totalbuyinstant;
+		var totaldeltaminustwo = totalsellingminustwo - totalbuyinstant;
 
         recipe.totalBuyInstantPrice = totalbuyinstant;
         recipe.totalSellingResult = totalsellingresult;
         recipe.totalSellingProfit = totaldelta;
         recipe.totalSellingProfitMinusOne = totaldeltaminusone;
+		recipe.totalSellingProfitMinusTwo = totaldeltaminustwo;
 
         // callback as needed.
         if (areAllRecipiesLoaded() && allloadedcallback)

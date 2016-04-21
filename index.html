@@ -12,6 +12,32 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/angular-cloak.css" rel="stylesheet" />
+	
+	
+	<!-- page style -->
+	<style>
+		.profit{
+			background-color: #9F9;
+		}
+	
+		.nonprofit{
+			background-color: #F99;
+		}
+		
+		img{
+			max-width: 50px;
+		}
+		
+		td{
+			text-align: center;
+		}
+		
+		td.left{
+			text-align: left;
+		}
+		
+	</style>
+	
     <title>GW2 T6 Promotion</title>
 </head>
 <body ng-controller="ItemsController">
@@ -26,46 +52,56 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-cloak ng-show="Loaded" ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
-            <div class="col-sm-12">
-                <div class="well">
-                    <h2>{{recipe.name}}</h2>
-                    <div class="row">
-                        <div class="col-sm-3" ng-repeat="ingredient in recipe.ingredients">
-                            <h4>{{ingredient.item.name}}</h4>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img class="img-rounded" src="{{ingredient.item.icon}}" />
-                                </div>
-                                <div class="col-sm-8">
-                                    <h4>x {{ingredient.quantity}}</h4>
-                                    <p>Buy Price: {{ingredient.item.commerce.buys.unit_price}}</p>
-                                    <p>Sell Price: {{ingredient.item.commerce.sells.unit_price}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <h4>{{recipe.result.item.name}}</h4>
-                            <div class="col-sm-4">
-                                <img class="img-rounded" src="{{recipe.result.item.icon}}" />
-                            </div>
-                            <div class="col-sm-8">
-                                <h4>x {{recipe.result.quantity}}</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h4> Total Instant Cost: {{recipe.totalBuyInstantPrice}}</h4>
-                            <h4> Total TP Selling Result: {{recipe.totalSellingResult}}</h4>
-                            <h4> Total TP Selling Profit: {{recipe.totalSellingProfit}}</h4>
-                            <h5> Total TP Selling Profit (6 Results): {{recipe.totalSellingProfitMinusOne}}</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row" ng-cloak ng-show="Loaded">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>T5</th>
+						<th>T6</th>
+						<th>Dust</th>
+						<th>Result</th>
+						<th>Instant Cost</th>
+						<th>Selling Result</th>
+						<th>Profit</th>
+						<th>Profit - 6</th>
+						<th>Profit - 5</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="recipe in recipies | orderBy:'-totalSellingProfit'">
+					<tr>
+						<td class="left">{{recipe.name}}</td>
+						<td>
+							<img src="{{recipe.ingredients[0].item.icon}}" />
+							<br/>
+							<p>{{recipe.ingredients[0].item.name}} x{{recipe.ingredients[0].quantity}}</p>
+						</td>
+						<td>
+							<img src="{{recipe.ingredients[1].item.icon}}" /> 
+							<br/>
+							<p>{{recipe.ingredients[1].item.name}} x{{recipe.ingredients[1].quantity}}</p>
+						</td>
+						<td>
+							<img src="{{recipe.ingredients[2].item.icon}}" /> 
+							<br/>
+							<p>{{recipe.ingredients[2].item.name}} x{{recipe.ingredients[2].quantity}}</p>
+						</td>
+						<td>
+							<img src="{{recipe.result.item.icon}}" /> 
+							<br/>
+							<p>{{recipe.result.item.name}} x{{recipe.result.quantity}}</p>
+						</td>
+						
+						<td>{{recipe.totalBuyInstantPrice}}</td>
+						<td>{{recipe.totalSellingResult}}</td>
+						<td ng-class="(recipe.totalSellingProfit >= 0) ? 'profit' : 'nonprofit'">{{recipe.totalSellingProfit}}</td>
+						<td ng-class="(recipe.totalSellingProfitMinusOne >= 0) ? 'profit' : 'nonprofit'">{{recipe.totalSellingProfitMinusOne}}</td>
+						<td ng-class="(recipe.totalSellingProfitMinusTwo >= 0) ? 'profit' : 'nonprofit'">{{recipe.totalSellingProfitMinusTwo}}</td>
+					</tr>
+				</tbody>
+			
+			</table>
+		
         </div>
         
     </div>
